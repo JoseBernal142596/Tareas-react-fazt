@@ -1,0 +1,71 @@
+USE Escuela;
+
+INSERT INTO dbo.Auxiliares (nombre, paterno, materno, telefono) 
+					VALUES ('Juan','Martinez','Gonzalez',12312313),
+							('Jairo','Martinez','Ramirez',1413413);
+
+
+SET IDENTITY_INSERT Auxiliares ON;
+
+INSERT INTO Auxiliares(idAuxiliar, nombre, paterno, materno, telefono)
+			VALUES (3,'Jazmin','Martinez','Gonzalez',1212312313),
+				   (4,'Camila','Martinez','Gutierrez',14342413);
+
+SET IDENTITY_INSERT Auxiliares OFF;
+
+
+INSERT INTO Colegiaturas(monto, fecha, estado) 
+			VALUES(400,2024-01-01,1),
+				  (400,2024-02-01,1),
+				  (400,2024-03-01,1),
+				  (400,2024-04-01,1),
+				  (400,2024-05-01,1),
+				  (400,2024-06-01,1),
+				  (400,2024-07-01,1),
+				  (400,2024-08-01,1),
+				  (400,2024-09-01,1),
+				  (400,2024-10-01,1),
+				  (400,2024-11-01,1),
+				  (400,2024-12-01,1);
+
+
+
+INSERT INTO Alumnos(idAuxiliar, idColegiatura,codigoAlumno, nombre, paterno, materno,fechaNacimiento,domicilio)
+			VALUES (2,1, 'A-102', 'Margarita','Martin', 'Sánchez',2000-01-01,'Av Brasil 130'),
+				   (3,1, 'A-103', 'Leticia', 'Gonzàlez', 'Jimenez',2000-01-01,'Av Peru 237'),
+				   (4,1, 'A-104', 'Alberto', 'Romero', 'Navarro',2000-01-01,'Jr Historia 485'),
+				   (5,1, 'A-105', 'Alejandro', 'Ramos', 'Gil',2000-01-01,'Av España 333'),
+				   (6,1, 'A-106', 'Daniel', 'Morales', 'Blanco',2000-01-01,'Av Historia 247'),
+				   (7,1, 'A-107', 'Felipe', 'Molina', 'Castro',2000-01-01,'Av España 652'),
+				   (8,1, 'A-108', 'Antonia', 'Rubio', 'Iglesias',2000-01-01,'Av Peru 742'),
+				   (9,1, 'A-109', 'Leticia', 'Gonzàlez', 'Garrido',2000-01-01,'Av Brasil 658'),
+				   (10,1, 'A-110', 'Luisa', 'Lozano', 'Cruz',2000-01-01,'Av Brasil 347');
+
+
+
+-- Ejercicio: Insertar Registro en la Tabla Alumnos
+-- Insertar Múltiples Registros en la Tabla Alumnos
+INSERT INTO Alumnos
+(idAuxiliar, idColegiatura, codigoAlumno, nombre, paterno, materno, fechaNacimiento, domicilio)
+VALUES
+(2, 1, 'A-102', 'Margarita', 'Martín', 'Sánchez', '01/01/2000', 'Av. Brasil 130'),
+(3, 1, 'A-103', 'Leticia', 'González', 'Jimenez', '01/01/2000', 'Av. Peru 237'),
+(4, 1, 'A-104', 'Alberto', 'Romero', 'Navarro', '01/01/2000', 'Jr. Historia 485'),
+(5, 1, 'A-105', 'Alejandro', 'Ramos', 'Gil', '01/01/2000', 'Av. España 333'),
+(6, 1, 'A-106', 'Daniel', 'Morales', 'Blanco', '01/01/2000', 'Av. Historia 247'),
+(7, 1, 'A-107', 'Felipe', 'Molina', 'Castro', '01/01/2000', 'Av. España 652'),
+(8, 1, 'A-108', 'Antonia', 'Rubio', 'Iglesias', '01/01/2000', 'Av. Peru 742'),
+(9, 1, 'A-109', 'Isabel', 'Santos', 'Garrido', '01/01/2000', 'Av. Brasil 658'),
+(10, 1, 'A-110', 'Luisa', 'Lozano', 'Cruz', '01/01/2000', 'Av. Brasil 347');
+
+
+SELECT
+    name AS DatabaseName,
+    SUSER_SNAME(owner_sid) AS DatabaseOwner
+FROM sys.databases
+WHERE name = 'Escuela';
+
+ALTER AUTHORIZATION ON DATABASE::Escuela TO sa;
+
+SELECT SUSER_NAME();
+
